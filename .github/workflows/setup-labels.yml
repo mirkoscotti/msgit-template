@@ -4,7 +4,6 @@ on:
   push:
     branches: 
       - main
-      - msgit-template-1
     paths:
       - '.github/configuration/labels.yml'
   workflow_dispatch:
