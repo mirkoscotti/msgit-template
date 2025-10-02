@@ -1,6 +1,6 @@
 # GitHub Labels Workflow
 
-This repository uses a standardized labeling system to efficiently classify and manage issues and pull requests. Labels are organized into two main categories.
+This repository template defines a standardized labeling system to efficiently classify and manage issues and pull requests. Labels are organized into two main categories.
 
 ## Type Labels
 
@@ -48,27 +48,9 @@ Status labels indicate the current workflow stage:
 3. **During development**: `status:in-progress`
 4. **Before merge**: `status:review`
 
-## Guidelines for Contributors
+## Adopting this standard
 
-### When opening an issue
-- **Be specific** in the title and description
-- **Don't apply labels** - maintainers will do this during triage
-- **Provide sufficient details** to allow proper classification
-
-### When working on an issue
-- **Assign yourself** to the issue before starting
-- **Update regularly** on progress in comments
-- **Change status** to `in-progress` when you begin (if you have permissions)
-
-### For pull requests
-- **Reference** the related issue (e.g., "Fixes #123")
-- **Apply** the `status:review` label when ready for review
-- **Respond promptly** to review feedback
-
-## Automatic Setup
-
-This repository includes a GitHub Action that automatically configures all these labels. Labels are created/updated whenever a push is made to the main branch, replacing GitHub's default labels with our standardized system.
-
----
-
-*This labeling system helps keep the repository organized and facilitates collaboration. If you have questions about the workflow, don't hesitate to ask in issue comments!*
+When creating a new repository from this template:
+- The labels will be automatically configured by the GitHub Action `.github/workflows/setup-labels.yml`
+- Consider documenting the workflow in your repository's CONTRIBUTING.md
+- Maintainers are responsible for label application during issue triage
