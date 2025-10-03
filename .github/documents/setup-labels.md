@@ -52,5 +52,5 @@ Status labels indicate the current workflow stage:
 
 When creating a new repository from this template:
 - The labels will be automatically configured by the GitHub Action `.github/workflows/setup-labels.yml`
-- Consider documenting the workflow in your repository's CONTRIBUTING.md
+- Consider documenting the labels state machine in your repository's CONTRIBUTING.md
 - Maintainers are responsible for label application during issue triage
