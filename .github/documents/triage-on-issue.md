@@ -1,6 +1,6 @@
 # GitHub Action: Assign Triage Label On Issue
 
-The repository template standardize part of the issues lifecycle to automatically assign the label ![status:triage](https://img.shields.io/badge/status:triage-F59E0B?style=flat-square) to all newly opened issues in each repository created from this template.
+The repository template standardizes part of the issues lifecycle to automatically assign the label ![status:triage](https://img.shields.io/badge/status:triage-F59E0B?style=flat-square) to all newly opened issues in each repository created from this template.
 
 ## Adopting this standard
 
