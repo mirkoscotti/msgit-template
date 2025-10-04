@@ -1,0 +1,94 @@
+name: Create Branch on Issue
+
+on:
+  issues:
+    types: [labeled]
+    
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  
+jobs:
+
+  create-branch:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'status:accepted' || github.event.label.name == 'status:confirmed'
+    
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+    
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Setup environment
+        run: |
+          chmod +x .github/scripts/*.sh
+          
+      - name: Create branch
+        env:
+          REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          bash .github/scripts/create-branch.sh
+          
+      - name: Debug
+        run: |
+          echo "BRANCH_CREATED value: '$BRANCH_CREATED'"
+          echo "BRANCH_NAME value: '$BRANCH_NAME'"
+          
+      - name: Create Pull Request
+        if: env.BRANCH_CREATED == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ env.BRANCH_NAME }}
+          title: "Resolve #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+          body: |
+            ## 🔗 Link to the issue
+            Resolves #${{ github.event.issue.number }}
+            
+            ## 📋 Description
+            ${{ github.event.issue.body }}
+            
+            Thanks to @${{ github.event.issue.user.login }} for reporting this issue!
+            
+            ## ✅ Checklist
+            - [ ] Implementation completed
+            - [ ] Tests added/updated
+            - [ ] Documentation updated
+            - [ ] Code review required
+            
+            ---
+            *This PR was automatically created from the issue [#${{ github.event.issue.number }}](${{ github.event.issue.html_url }})*
+          commit-message: "Initial commit for issue #${{ github.event.issue.number }}"
+          draft: false
+          
+      - name: Comment on Issue
+        if: env.BRANCH_CREATED == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ env.ISSUE_NUMBER }}
+        run: |
+          COMMENT="🚀 **Branch and Pull Request successfully created!**
+
+          📋 **Branch:** \`${{ env.BRANCH_NAME }}\`
+          🔄 **Pull Request:** Go to [Pull Requests](https://github.com/${{ env.REPOSITORY }}/pulls) to view the PR created.
+
+          The branch is ready for development. Happy coding! 🎉"
+
+          # Final comment
+          echo "Adding comment to issue #${{ env.ISSUE_NUMBER }}"
+          gh issue comment "${{ env.ISSUE_NUMBER }}" --body "$COMMENT" || echo "Failed to comment on issue, but continuing..."
