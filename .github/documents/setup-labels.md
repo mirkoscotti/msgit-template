@@ -1,8 +1,10 @@
-# GitHub Labels Workflow
+# 🏷️ GitHub Action - Labels Workflow
 
 This repository template defines a standardized labeling system to efficiently classify and manage issues and pull requests. Labels are organized into two main categories.
 
-## Type Labels
+## ⚡ Features
+
+### Type Labels
 
 Type labels classify the nature of the contribution:
 
@@ -18,7 +20,7 @@ Type labels classify the nature of the contribution:
 | ![type:performance](https://img.shields.io/badge/type:performance-FBB6CE?style=flat-square) | Performance improvements |
 | ![type:accessibility](https://img.shields.io/badge/type:accessibility-FF6B6B?style=flat-square) | Accessibility improvements |
 
-## Status Labels
+### Status Labels
 
 Status labels indicate the current workflow stage:
 
@@ -34,7 +36,7 @@ Status labels indicate the current workflow stage:
 | ![status:duplicate](https://img.shields.io/badge/status:duplicate-9CA3AF?style=flat-square) | Duplicate of another issue |
 | ![status:wontfix](https://img.shields.io/badge/status:wontfix-374151?style=flat-square) | Won't be fixed |
 
-## Typical Workflows
+## ⚙️ Typical Workflows
 
 ### For Bug Reports
 1. **Creation**: `type:bug` + `status:triage`
@@ -48,7 +50,7 @@ Status labels indicate the current workflow stage:
 3. **During development**: `status:in-progress`
 4. **Before merge**: `status:review`
 
-## Adopting this standard
+## 📚 Adopting this standard
 
 When creating a new repository from this template:
 - The labels will be automatically configured by the GitHub Action `.github/workflows/setup-labels.yml`

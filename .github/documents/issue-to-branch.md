@@ -1,4 +1,4 @@
-# 📝 Issue-To-Branch Automation
+# 📝 GitHub Action - Issue-To-Branch Automation
 
 This is the standard to create branches and Pull Requests when GitHub Issues on repositories created from this template are labeled with:
 
@@ -16,7 +16,7 @@ This is the standard to create branches and Pull Requests when GitHub Issues on 
 - Issue #5 in `my-awesome-app` → `my-awesome-app-5`
 - Issue #42 in `api-server` → `api-server-42`
 
-## Typical workflow
+## ⚙️ Typical workflow
 
 - Checks if the issue is a root or a sub-issue
 - If the issue is a root, creates the branch from main
@@ -25,21 +25,7 @@ This is the standard to create branches and Pull Requests when GitHub Issues on 
 - Generates a structured Pull Request linked to the issue
 - Adds helpful comments and labels for better organization
 
-## How It Works
-
-### Trigger
-The workflow activates when:
-- An existing issue is **labeled** in repositories created from this template, according to the rules at the top of this document
-- Does NOT trigger on issue edits, comments, or other issue events
-
-### Process Flow
-1. **Issue Detection**: GitHub webhook triggers the action
-2. **Branch Creation**: Creates branch `{repository-name}-{issue-number}`
-3. **Initial Commit**: Adds empty commit with descriptive message
-4. **PR Generation**: Creates Pull Request with structured template
-5. **Issue Update**: Comments on original issue with branch details
-
-## Generated Content
+## ✨ Generated Content
 
 ### Pull Request Template
 ```markdown
@@ -70,7 +56,7 @@ The branch is ready for development. Happy coding! 🎉"
 ```
 
 
-## Adopting this standard
+## 📚 Adopting this standard
 
 When creating a new repository from this template:
 - The action will be automatically configured by the GitHub Action `.github/workflows/issue-to-branch.yml`
