@@ -63,8 +63,8 @@ Resolves #{issue-number}
 ```markdown
 🚀 **Branch and Pull Request successfully created!**
 
-📋 **Branch:** \`${{ env.BRANCH_NAME }}\`
-🔄 **Pull Request:** Go to [Pull Requests](https://github.com/${{ env.REPOSITORY }}/pulls) to view the PR created.
+📋 **Branch:** [branch-name]
+🔄 **Pull Request:** Go to [Pull Requests](https://github.com/[owner]/[repository-name]/pulls) to view the PR created.
 
 The branch is ready for development. Happy coding! 🎉"
 ```
