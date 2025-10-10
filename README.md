@@ -11,6 +11,13 @@ A template repository that provides automated GitHub Actions for streamlining de
 | 📝 **[Issue to Branch](.github/documents/issue-to-branch.md)** | Automatically creates branches for accepted or confirmed issues |
 | 📝 **[Pull Request](.github/documents/pull-request.md)** | Automatically creates WIP Pull Requests for branches |
 
+## 📝 Issue Templates
+
+| Template | Description |
+|----------|-------------|
+| 🐛 **[Bug Report](.github/ISSUE_TEMPLATE/bug-report.md)** | Report a bug to help improve the project |
+| ✨ **[Feature Request](.github/ISSUE_TEMPLATE/feature-report.md)** | Suggest new ideas and enhancements for the project |
+
 ## 🎯 Quick Start
 
 1. Click **"Use this template"** in the top right
