@@ -8,7 +8,8 @@ A template repository that provides automated GitHub Actions for streamlining de
 |--------|-------------|
 | 📝 **[Setup Label](.github/documents/setup-labels.md)** | Applies the standard custom label set to the repository |
 | 📝 **[Triage on Issue](.github/documents/triage-on-issue.md)** | Automatically adds the triage label to new issues |
-| 📝 **[Issue to Branch](.github/documents/issue-to-branch.md)** | Automatically creates branches and Pull Requests for accepted or confirmed issues |
+| 📝 **[Issue to Branch](.github/documents/issue-to-branch.md)** | Automatically creates branches for accepted or confirmed issues |
+| 📝 **[Pull Request](.github/documents/pull-request.md)** | Automatically creates WIP Pull Requests for branches |
 
 ## 🎯 Quick Start
 
